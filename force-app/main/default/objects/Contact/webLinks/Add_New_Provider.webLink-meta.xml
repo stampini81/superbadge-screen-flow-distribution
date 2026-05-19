@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>    
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <fullName>Add_New_Provider</fullName>
+    <linkType>url</linkType>
+    <masterLabel>Add New Provider</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Provider?Contact_Record_Id={!Contact.Id}&amp;retURL=/{!Contact.Id}</url>
+</WebLink>
