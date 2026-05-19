@@ -1,4 +1,6 @@
 <p align="center">
+  <img src="doc/imagens/logo.png" alt="Logo" width="160"/>
+  &nbsp;&nbsp;
   <img src="doc/imagens/badge.png" alt="Superbadge Badge" width="120"/>
 </p>
 
@@ -7,62 +9,76 @@
 Projeto Salesforce DX com os metadados do **Screen Flow Distribution Superbadge** do Trailhead.
 
 <p align="center">
-  <img src="doc/imagens/trailhead.png" alt="Trailhead" width="200"/>
+  <img src="doc/imagens/trailhead.png" alt="Trailhead" width="220"/>
 </p>
+
+---
 
 ## Desafios
 
-### Challenge 1 — Hive App Home Page + Account Quick Action
-- Flow **Provider** adicionado à Home Page do Hive App (`Hive_Provider_Home_Page`)
-- Quick Action **Create New Provider** criada no objeto Account e adicionada ao layout
+### Desafio 1 — Hive App Home Page + Quick Action na Conta
 
-### Challenge 2 — Contact Button + Utility Bar
-- Botão customizado **Add New Provider** adicionado ao layout do Contact
+<p align="center">
+  <img src="doc/imagens/mascote.png" alt="Mascote" width="180"/>
+</p>
+
+- Flow **Provider** adicionado à Página Inicial do Hive App (`Hive_Provider_Home_Page`)
+- Quick Action **Create New Provider** criada no objeto Conta e adicionada ao layout
+
+---
+
+### Desafio 2 — Botão no Contato + Barra de Utilitários
+
+<p align="center">
+  <img src="doc/imagens/mascote1.png" alt="Mascote 1" width="180"/>
+</p>
+
+- Botão customizado **Add New Provider** adicionado ao layout do Contato
   - URL: `/flow/Provider?Contact_Record_Id={!Contact.Id}`
-- Flow **Provider** adicionado ao Utility Bar do Hive App (altura: 500, largura: 500)
+- Flow **Provider** adicionado à Barra de Utilitários do Hive App (altura: 500, largura: 500)
 
-### Challenge 3 — Experience Cloud + Flow Configuration
-- Flow **Provider** adicionado à Home Page do site Hive (Experience Cloud)
-- Botão Pause desabilitado em todas as telas do flow
-- Tela **S2 Provider Signup** configurada com auto-populate:
+---
+
+### Desafio 3 — Experience Cloud + Configuração do Flow
+
+<p align="center">
+  <img src="doc/imagens/challenge.png" alt="Challenge" width="220"/>
+</p>
+
+- Flow **Provider** adicionado à Página Inicial do site Hive (Experience Cloud)
+- Botão Pausar desabilitado em todas as telas do flow
+- Tela **S2 Provider Signup** configurada com preenchimento automático:
   - **Practice Name** → variável `recordId`
   - **Provider Name** → variável `Contact_Record_Id`
 - Botão "Finish" renomeado para **"Thank you"**
-- Registro Provider criado como Jane Grey com Practice Type: Solo Practitioner
+- Registro Provider criado pela usuária Jane Grey com Tipo de Prática: Solo Practitioner
+
+---
 
 ## Deploy
 
 ```bash
-# Autenticar org
+# Autenticar na org
 sf org login web --alias hive-superbadge
 
 # Deploy completo
 sf project deploy start --target-org hive-superbadge --source-dir force-app --ignore-warnings
 ```
 
-## Estrutura
+## Estrutura do Projeto
 
 ```
 force-app/main/default/
-├── flows/                  # Provider flow
-├── flexipages/             # Home Page e Utility Bar
-├── layouts/                # Account e Contact layouts
-├── quickActions/           # Create New Provider (Account)
-├── objects/Contact/        # Add New Provider button
+├── flows/                  # Flow Provider
+├── flexipages/             # Home Page e Barra de Utilitários
+├── layouts/                # Layouts de Conta e Contato
+├── quickActions/           # Create New Provider (Conta)
+├── objects/Contact/        # Botão Add New Provider
 ├── applications/           # Hive App
-├── experiences/            # Experience Cloud Hive site
+├── experiences/            # Site Experience Cloud Hive
 └── permissionsets/         # Provider Access
 ```
 
 ## Licença
 
 MIT © [Leandro da Silva Stampini](LICENSE)
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
